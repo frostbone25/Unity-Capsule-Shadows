@@ -55,6 +55,7 @@ Some things I want to do, and things I would like to get help with...
 - Move the entire effect into a single compute shader for ease.
 - Using a tretched elipsoid function for approximating all of the current shapes like Boxes, Capsules, and Spheres for improved performance (as proposed in the first last of us paper)
 - Implement a LUT generation for the cone angle (as proposed in the first last of us paper)
+- A better/more efficent way to obtain shadow casters. Currently grabbing them all globally is a bad idea, perhaps a pre-existing list of shadow casters might help?
 
 ### Sources/Credits
 
