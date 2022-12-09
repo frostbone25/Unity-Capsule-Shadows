@@ -15,6 +15,7 @@ Capsule shadows for dynamic objects.
 
 - Adjustable softness via cone angle.
 - Self shadowing support.
+- Supports capsules, spheres, boxes (wip).
 - Sample light directionality from multiple sources (Lightmap Directionality, Spherical Harmonics via Probes, or a Global Direction).
 - Bilaterial filter for upsampling when the effect is performed at a lower resolution.
 - Compute Shader based.
