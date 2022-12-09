@@ -17,7 +17,7 @@ Capsule shadows for dynamic objects.
 - Adjustable softness via cone angle.
 - Self shadowing support.
 - Sample light directionality from multiple sources (Lightmap Directionality, Spherical Harmonics via Probes, or a Global Direction).
-- Bilinear filter for upsampling when the effect is performed at a lower resolution.
+- Bilaterial filter for upsampling when the effect is performed at a lower resolution.
 
 **NOTE: Constructed on the Built-In Rendering Pipeline.**
 
