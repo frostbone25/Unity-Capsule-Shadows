@@ -53,7 +53,7 @@ Some things I want to do, and things I would like to get help with...
 - Replace the dual cameras I use that create my Directionality/Mask buffers with a proper implementation via command buffers or some other way, I'm not happy with the current way I have it.
 - Find a way to optimize the shape compute buffers by only updating/rebuilding when necessary (i.e. only updating when shapes have been moved)
 - Move the entire effect into a single compute shader for ease.
-- Using a tretched elipsoid function for approximating all of the current shapes like Boxes, Capsules, and Spheres for improved performance as proposed in the [first last of us paper](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf).
+- Using a stretched elipsoid function for an option to approximate all of the current primitives like Boxes, Capsules, and Spheres for improved performance as proposed in the [first last of us paper](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf).
 - Implement a LUT generation for the cone angle as proposed in the [first last of us paper](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf).
 - A better/more efficent way to obtain shadow casters. Currently grabbing them all globally is a bad idea, perhaps a pre-existing list of shadow casters might help?
 
