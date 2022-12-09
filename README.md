@@ -27,7 +27,8 @@ This effect is meant to be used to help ground dynamic objects with static objec
 
 It also drives me up the wall that there is at the time of writing no public implementation of this effect implemented in Unity (or other engines). For how useful the effect is for grounding dynamic objects in your scene its very transformative, so your welcome. If you'd like to also contribute to this effect and help make it better than please feel free!
 
-### How it works...
+# How it works...
+
 So the general steps for the effect is the following...
 
 In your scene you would have objects that have primitive shadow casters on them, these get picked up globally by the camera and a compute buffer is created to contain all of the shapes found (Boxes, Capsules, Spheres).
