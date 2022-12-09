@@ -62,3 +62,4 @@ Some things I want to do, and things I would like to get help with...
 - [https://www.shadertoy.com/view/3stcD4](https://www.shadertoy.com/view/3stcD4)
 - [Lighting Technology of The Last of Us Part II](https://history.siggraph.org/learning/lighting-technology-of-the-last-of-us-part-ii-by-doghramachi/)
 - [Lighting technology of the last of us](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf)
+- [Extracting dominant light from Spherical Harmonics](https://www.gamedeveloper.com/programming/in-depth-extracting-dominant-light-from-spherical-harmonics)
