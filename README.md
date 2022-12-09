@@ -33,7 +33,9 @@ So the general steps for the effect is the following...
 
 In your scene you would have objects that have primitive shadow casters on them, these get picked up globally by the camera and a compute buffer is created to contain all of the shapes found (Boxes, Capsules, Spheres).
 
-After that we have 2 cameras that are created, which act as our buffers (not a fan of this currently, looking for a better way to do it). Both cameras render with a shader replacement. One camera renders scene directionality while the other renders a mask buffer for dynamic objects. The mask buffer is used during compositing to control self shadowing (or to remove it altogether), objects included in the mask are ones that are not lightmapped.
+After that we have 2 cameras that are created, which act as our buffers (not a fan of this currently, looking for a better way to do it). Both cameras render with a shader replacement. One camera renders scene directionality while the other renders a mask buffer for dynamic objects. 
+
+Note: The mask buffer is used during compositing to control self shadowing (or to remove it altogether), objects included in the mask are ones that are not lightmapped. Which is done with a replacement shader that will render black if the LIGHTMAP_ON keyword is on, and will render white if it is off.
 
 It's worth mentioning that light directionality can be sampled from different places, each have their own advantages and drawbacks...
 - **Directional Scene Lightmaps:** Using lightmaps baked with directionality to obtain the dominant light direction.
