@@ -13,11 +13,11 @@ A work in progress solution for capsule shadows in Unity.
 
 Capsule shadows for dynamic objects.
 
-- Compute Shader based.
 - Adjustable softness via cone angle.
 - Self shadowing support.
 - Sample light directionality from multiple sources (Lightmap Directionality, Spherical Harmonics via Probes, or a Global Direction).
 - Bilaterial filter for upsampling when the effect is performed at a lower resolution.
+- Compute Shader based.
 
 **NOTE: Constructed on the Built-In Rendering Pipeline.**
 
@@ -32,12 +32,12 @@ So the general steps for the effect is the following...
 
 In your scene you would have objects that have primitive shadow casters on them, these get picked up globally by the camera and a compute buffer is created to contain all of the shapes found (Boxes, Capsules, Spheres).
 
-After that we have 2 cameras that are created, which act as our buffers (not a fan of this currently, looking for a better way to do it). Both cameras render with a shader replacement. One camera renders scene directionality while the other renders a mask buffer for dynamic objects. 
+After that we have 2 cameras that are created, which act as our buffers (not a fan of this currently, looking for a better way to do it). Both cameras render with a shader replacement. One camera renders scene directionality while the other renders a mask buffer for dynamic objects. The mask buffer is used during compositing to control self shadowing (or to remove it altogether), objects included in the mask are ones that are not lightmapped.
 
 It's worth mentioning that light directionality can be sampled from different places, each have their own advantages and drawbacks...
-- Directional Scene Lightmaps
-- Probe Lighting (objects shaded by light probes or ambient probes)
-- Global Direction
+- **Directional Scene Lightmaps:** Using lightmaps baked with directionality to obtain the dominant light direction.
+- **Light Probes:** Dominant light direction is obtained by objects shaded through light probes or ambient probes.
+- **Global Direction:** A single vector that defines the global direction in which shadows come from.
 
 The last thing that is done is that a camera world position render target is also generated and blitted. Then finally all of this information is fed into a compute shader, tracing each shape against the scene world position buffer to get our result.
 
@@ -45,9 +45,11 @@ After that, we get the resulting render target from that, and do a bilaterial bl
 
 # TODO
 
-- VR Support (MAIN GOAL)
-- Replace the dual cameras I use that create my Directionality/Mask buffers with a proper implementation via command buffers or some other way, I'm not happy with the current way I have it.
+Some things I want to do, and things I would like to get help with...
+
+- VR Support *(MAIN GOAL)*
 - Proper Box tracing function
+- Replace the dual cameras I use that create my Directionality/Mask buffers with a proper implementation via command buffers or some other way, I'm not happy with the current way I have it.
 - Find a way to optimize the shape compute buffers by only updating/rebuilding when necessary (i.e. only updating when shapes have been moved)
 - Move the entire effect into a single compute shader for ease.
 - Using a tretched elipsoid function for approximating all of the current shapes like Boxes, Capsules, and Spheres for improved performance (as proposed in the first last of us paper)
