@@ -1,0 +1,234 @@
+#include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
+#define sq(x) (x * x)
+
+//main keywords
+#pragma multi_compile_local _ USE_LIGHTMAP_DIRECTION
+#pragma multi_compile_local _ USE_PROBE_DIRECTION
+#pragma multi_compile_local _ TRACE_BOX_COLLIDERS
+#pragma multi_compile_local _ TRACE_SPHERE_COLLIDERS
+#pragma multi_compile_local _ TRACE_CAPSULE_COLLIDERS
+
+//|||||||||||||||||||||||||||||||||||||| SHAPE BUFFERS ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| SHAPE BUFFERS ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| SHAPE BUFFERS ||||||||||||||||||||||||||||||||||||||
+struct CubeStruct
+{
+    float3 position;
+    float3 size;
+    float4 rotation;
+    float3 sphericalHarmonicDirection;
+};
+
+struct SphereStruct
+{
+    float3 position;
+    float radius;
+    float3 sphericalHarmonicDirection;
+};
+
+struct CapsuleStruct
+{
+    float3 position;
+    float3 direction;
+    float height;
+    float radius;
+    float4 rotation;
+    float3 sphericalHarmonicDirection;
+};
+
+RWStructuredBuffer<CubeStruct> Cubes;
+RWStructuredBuffer<SphereStruct> Spheres;
+RWStructuredBuffer<CapsuleStruct> Capsules;
+
+//|||||||||||||||||||||||||||||||||||||| TEXTURES ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| TEXTURES ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| TEXTURES ||||||||||||||||||||||||||||||||||||||
+
+float2 _RenderResolution;
+Texture2D<float4> WorldPosition;
+Texture2D<float4> DirectionalBuffer;
+RWTexture2D<float4> Result;
+
+SamplerState _PointClamp;
+SamplerState _LinearClamp;
+
+float4 TEX2D_SHARP(Texture2D<float4> tex, float2 uv)
+{
+    return tex.SampleLevel(_PointClamp, uv, 0);
+}
+
+float4 TEX2D(Texture2D<float4> tex, float2 uv)
+{
+    return tex.SampleLevel(_LinearClamp, uv, 0);
+}
+
+//|||||||||||||||||||||||||||||||||||||| PROPERTIES ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| PROPERTIES ||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||| PROPERTIES ||||||||||||||||||||||||||||||||||||||
+
+float _OccluderRadiusMultiplier;
+float _ConeAngle;
+float _Distance;
+float3 _GlobalDirection;
+
+float acosFast(float x) 
+{
+    // Lagarde 2014, "Inverse trigonometric functions GPU optimization for AMD GCN architecture"
+    // This is the approximation of degree 1, with a max absolute error of 9.0x10^-3
+    float y = abs(x);
+    float p = -0.1565827 * y + 1.570796;
+    p *= sqrt(1.0 - y);
+    return x >= 0.0 ? p : PI - p;
+}
+
+float acosFastPositive(float x) 
+{
+    // Lagarde 2014, "Inverse trigonometric functions GPU optimization for AMD GCN architecture"
+    float p = -0.1565827 * x + 1.570796;
+    return p * sqrt(1.0 - x);
+}
+
+float sphericalCapsIntersection(float cosCap1, float cosCap2, float cap2, float cosDistance)
+{
+    // Oat and Sander 2007, "Ambient Aperture Lighting"
+    // Approximation mentioned by Jimenez et al. 2016
+    float r1 = acosFastPositive(cosCap1);
+    float r2 = cap2;
+    float d = acosFast(cosDistance);
+
+    // We work with cosine angles, replace the original paper's use of
+    // cos(min(r1, r2)_ with max(cosCap1, cosCap2)
+    // We also remove a multiplication by 2 * PI to simplify the computation
+    // since we divide by 2 * PI at the call site
+
+    if (min(r1, r2) <= max(r1, r2) - d) 
+    {
+        return 1.0 - max(cosCap1, cosCap2);
+    }
+    else if (r1 + r2 <= d) 
+    {
+        return 0.0;
+    }
+
+    float delta = abs(r1 - r2);
+    float x = 1.0 - saturate((d - delta) / max(r1 + r2 - delta, 0.0001));
+    // simplified smoothstep()
+    float area = sq(x) * (-2.0 * x + 3.0);
+    return area * (1.0 - max(cosCap1, cosCap2));
+}
+
+float directionalOcclusionSphere(float3 rayPosition, float3 spherePosition, float sphereRadius, float4 coneProperties)
+{
+    float3 occluder = spherePosition.xyz - rayPosition;
+    float occluderLength2 = dot(occluder, occluder);
+    float3 occluderDir = occluder * rsqrt(occluderLength2);
+
+    float cosPhi = dot(occluderDir, coneProperties.xyz);
+    // sq(sphere.w) should be a uniform --> capsuleRadius^2
+    float cosTheta = sqrt(occluderLength2 / (sq(sphereRadius) + occluderLength2));
+    float cosCone = cos(coneProperties.w);
+
+    return 1.0 - sphericalCapsIntersection(cosTheta, cosCone, coneProperties.w, cosPhi) / (1.0 - cosCone);
+}
+
+//this sort of work but doesn't support rotations
+float directionalOcclusionCube(float3 rayPosition, float3 cubePos, float3 cubeSize, float4 cubeRotation, float4 coneProperties)
+{
+    float3 occluder = cubePos.xyz - rayPosition;
+    occluder /= cubeSize * 0.5f;
+
+    float occluderLength2 = dot(occluder, occluder);
+    float3 occluderDir = occluder * rsqrt(occluderLength2);
+    //occluderDir *= cubeRotation;
+    //occluderDir = cross(occluderDir, cubeRotation);
+
+    float cosPhi = dot(occluderDir, coneProperties.xyz);
+    // sq(sphere.w) should be a uniform --> capsuleRadius^2
+    float cosTheta = sqrt(occluderLength2 / (sq(1.0f) + occluderLength2));
+    float cosCone = cos(coneProperties.w);
+
+    return 1.0 - sphericalCapsIntersection(cosTheta, cosCone, coneProperties.w, cosPhi) / (1.0 - cosCone);
+}
+
+float directionalOcclusionCapsule(float3 rayPosition, float3 capsuleA, float3 capsuleB, float capsuleRadius, float4 coneProperties)
+{
+    float3 Ld = capsuleB - capsuleA;
+    float3 L0 = capsuleA - rayPosition;
+    float a = dot(coneProperties.xyz, Ld);
+    float t = saturate(dot(L0, a * coneProperties.xyz - Ld) / (dot(Ld, Ld) - a * a));
+    float3 positionToRay = capsuleA + t * Ld;
+
+    return directionalOcclusionSphere(rayPosition, positionToRay, capsuleRadius, coneProperties);
+}
+
+float4 GetConeProperties(float2 uv)
+{
+    #if defined (USE_LIGHTMAP_DIRECTION)
+        float4 sceneDirectionality = TEX2D(DirectionalBuffer, uv) * 2.0f - 1.0f;
+        float4 cone = float4(sceneDirectionality.xyz, radians(_ConeAngle) * 0.5);
+    #else
+        float4 cone = float4(_GlobalDirection.xyz, radians(_ConeAngle) * 0.5);
+    #endif
+
+    cone.xyz = normalize(cone.xyz);
+
+    return cone;
+}
+
+#pragma kernel CSMain
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    float2 uv = (id.xy + float2(0.5, 0.5)) / _RenderResolution;
+    float result = 1.0;
+    float3 worldPosition = TEX2D(WorldPosition, uv).xyz;
+    float4 cone = GetConeProperties(uv);
+
+    #if defined (TRACE_SPHERE_COLLIDERS)
+        for (uint x = 0; x < Spheres.Length; x++)
+        {
+            SphereStruct sphere = Spheres[x];
+
+            #if defined (USE_PROBE_DIRECTION)
+                float4 newCone = float4(sphere.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
+                result *= directionalOcclusionSphere(worldPosition, sphere.position, sphere.radius, newCone);
+            #else
+                result *= directionalOcclusionSphere(worldPosition, sphere.position, sphere.radius, cone);
+            #endif
+        }
+    #endif
+
+    //needs a cube function
+    #if defined (TRACE_BOX_COLLIDERS)
+        for (uint y = 0; y < Cubes.Length; y++)
+        {
+            CubeStruct cube = Cubes[y];
+
+            #if defined (USE_PROBE_DIRECTION)
+                float4 newCone = float4(cube.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
+                result *= directionalOcclusionCube(worldPosition, cube.position, cube.size, cube.rotation, newCone);
+            #else
+                result *= directionalOcclusionCube(worldPosition, cube.position, cube.size, cube.rotation, cone);
+            #endif
+        }
+    #endif
+
+    #if defined (TRACE_CAPSULE_COLLIDERS)
+        for (uint z = 0; z < Capsules.Length; z++)
+        {
+            CapsuleStruct capsule = Capsules[z];
+
+            float3 endA = capsule.position + capsule.direction * capsule.height;
+            float3 endB = capsule.position - capsule.direction * capsule.height;
+
+            #if defined (USE_PROBE_DIRECTION)
+                float4 newCone = float4(capsule.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
+                result *= directionalOcclusionCapsule(worldPosition, endA, endB, capsule.radius, newCone);
+            #else
+                result *= directionalOcclusionCapsule(worldPosition, endA, endB, capsule.radius, cone);
+            #endif
+        }
+    #endif
+
+    Result[id.xy] = float4(result, 0, 0, 1);
+}
