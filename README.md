@@ -21,11 +21,27 @@ Capsule shadows for dynamic objects.
 
 **NOTE: Constructed on the Built-In Rendering Pipeline.**
 
-# More Context
+# Context
 
 This effect is meant to be used to help ground dynamic objects with static objects, which is typical after when lightmapping scenes that are using purely baked lighting. This effect is akin to analytical shadows in that it uses primitives to cast shadows i.e. Box, Spheres, and Capsules. It uses Unity PhysX colliders to it's advantage to get those primitive shapes that normally would be defined for dynamic objects/characters. So if you already have a bunch of colliders for your characters/objects defined then this effect should be very trivial to implement.
 
 It also drives me up the wall that there is at the time of writing no public implementation of this effect implemented in Unity (or other engines). For how useful the effect is for grounding dynamic objects in your scene its very transformative, so your welcome. If you'd like to also contribute to this effect and help make it better than please feel free!
+
+### How it works...
+So the general steps for the effect is the following...
+
+In your scene you would have objects that have primitive shadow casters on them, these get picked up globally by the camera and a compute buffer is created to contain all of the shapes found (Boxes, Capsules, Spheres).
+
+After that we have 2 cameras that are created, which act as our buffers (not a fan of this currently, looking for a better way to do it). Both cameras render with a shader replacement. One camera renders scene directionality while the other renders a mask buffer for dynamic objects. 
+
+It's worth mentioning that light directionality can be sampled from different places, each have their own advantages and drawbacks...
+- Directional Scene Lightmaps
+- Probe Lighting (objects shaded by light probes or ambient probes)
+- Global Direction
+
+The last thing that is done is that a camera world position render target is also generated and blitted. Then finally all of this information is fed into a compute shader, tracing each shape against the scene world position buffer to get our result.
+
+After that, we get the resulting render target from that, and do a bilaterial blur (since the tracing is done at a low resolution) to smooth it out. Then it's composited back into the main scene color.
 
 # TODO
 
