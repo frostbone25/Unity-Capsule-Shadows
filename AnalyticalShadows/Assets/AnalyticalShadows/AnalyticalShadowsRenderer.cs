@@ -375,7 +375,7 @@ namespace AnalyticalShadows
             context.command.SetComputeTextureParam(computeShader, compute_main, "WorldPosition", worldPosition);
             context.command.SetComputeTextureParam(computeShader, compute_main, "MaskBuffer", maskBuffer);
             context.command.SetComputeTextureParam(computeShader, compute_main, "Result", computeWrite);
-            context.command.DispatchCompute(computeShader, compute_main, resolutionX, resolutionY, 1);
+            context.command.DispatchCompute(computeShader, compute_main, Mathf.CeilToInt(resolutionX / 8f), Mathf.CeilToInt(resolutionY / 8f), 1);
 
             if(settings.useBilaterialBlur.value)
             {
