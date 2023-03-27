@@ -62,7 +62,10 @@ Some things I want to do, and things I would like to get help with...
 
 ### Sources/Credits
 
-- [https://www.shadertoy.com/view/3stcD4](https://www.shadertoy.com/view/3stcD4)
+- [ShaderToy: Capsule shadow by romainguy](https://www.shadertoy.com/view/3stcD4)
 - [Lighting Technology of The Last of Us Part II](https://history.siggraph.org/learning/lighting-technology-of-the-last-of-us-part-ii-by-doghramachi/)
 - [Lighting technology of the last of us](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf)
 - [Extracting dominant light from Spherical Harmonics](https://www.gamedeveloper.com/programming/in-depth-extracting-dominant-light-from-spherical-harmonics)
+- [Unity Experimental HDRP Capsule Shadows Fork 1](https://github.com/Unity-Technologies/Graphics/tree/draft/rp/capsule-shadows)
+- [Unity Experimental HDRP Capsule Shadows Fork 2](https://github.com/Unity-Technologies/Graphics/tree/9.x.x/backport/hw20/capsule-soft-shadows/com.unity.render-pipelines.high-definition/Runtime/Lighting/CapsuleShadows)
+- [Unity Spherical Harmonics CPU Code](https://github.com/keijiro/LightProbeUtility/blob/master/Assets/LightProbeUtility.cs)
