@@ -54,52 +54,52 @@ public class AnalyticalShadowCaster : MonoBehaviour
         if (capsuleCollider != null)
         {
             capsuleStruct.SetData(capsuleCollider);
-            capsuleStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirection(probe);
+            capsuleStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirectionFast(probe);
         }
 
         if (sphereCollider != null)
         {
             sphereStruct.SetData(sphereCollider);
-            sphereStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirection(probe);
+            sphereStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirectionFast(probe);
         }
 
         if (boxCollider != null)
         {
             cubeStruct.SetData(boxCollider);
-            cubeStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirection(probe);
+            cubeStruct.sphericalHarmonicDirection = GetSphericalHarmonicsDirectionFast(probe);
         }
     }
 
-    private static Vector3 GetSphericalHarmonicsDirection(SphericalHarmonicsL2 sphericalHarmonicsL2)
+    private static Vector3 GetSphericalHarmonicsDirectionFast(SphericalHarmonicsL2 sphericalHarmonicsL2)
     {
-        //constant + linear
-        Vector4 unity_SHAr = new Vector4(sphericalHarmonicsL2[0, 3], sphericalHarmonicsL2[0, 1], sphericalHarmonicsL2[0, 2], sphericalHarmonicsL2[0, 0] - sphericalHarmonicsL2[0, 6]);
-        Vector4 unity_SHAg = new Vector4(sphericalHarmonicsL2[1, 3], sphericalHarmonicsL2[1, 1], sphericalHarmonicsL2[1, 2], sphericalHarmonicsL2[1, 0] - sphericalHarmonicsL2[1, 6]);
-        Vector4 unity_SHAb = new Vector4(sphericalHarmonicsL2[2, 3], sphericalHarmonicsL2[2, 1], sphericalHarmonicsL2[2, 2], sphericalHarmonicsL2[2, 0] - sphericalHarmonicsL2[2, 6]);
-
-        //quadratic polynomials
-        Vector4 unity_SHBr = new Vector4(sphericalHarmonicsL2[0, 4], sphericalHarmonicsL2[0, 6], sphericalHarmonicsL2[0, 5] * 3, sphericalHarmonicsL2[0, 7]);
-        Vector4 unity_SHBg = new Vector4(sphericalHarmonicsL2[1, 4], sphericalHarmonicsL2[1, 6], sphericalHarmonicsL2[1, 5] * 3, sphericalHarmonicsL2[1, 7]);
-        Vector4 unity_SHBb = new Vector4(sphericalHarmonicsL2[2, 4], sphericalHarmonicsL2[2, 6], sphericalHarmonicsL2[2, 5] * 3, sphericalHarmonicsL2[2, 7]);
-
-        //final quadratic polynomial
-        Vector4 unity_SHC = new Vector4(sphericalHarmonicsL2[0, 8], sphericalHarmonicsL2[2, 8], sphericalHarmonicsL2[1, 8], 1);
-
         //combine them all to get the dominant direction
         Vector3 combined = Vector3.zero;
 
         //add constant + linear
-        combined += new Vector3(unity_SHAr.x, unity_SHAr.y, unity_SHAr.z);
-        combined += new Vector3(unity_SHAg.x, unity_SHAg.y, unity_SHAg.z);
-        combined += new Vector3(unity_SHAb.x, unity_SHAb.y, unity_SHAb.z);
+        combined += new Vector3(sphericalHarmonicsL2[0, 3], sphericalHarmonicsL2[0, 1], sphericalHarmonicsL2[0, 2]); //unity_SHAr
+        combined += new Vector3(sphericalHarmonicsL2[1, 3], sphericalHarmonicsL2[1, 1], sphericalHarmonicsL2[1, 2]); //unity_SHAg
+        combined += new Vector3(sphericalHarmonicsL2[2, 3], sphericalHarmonicsL2[2, 1], sphericalHarmonicsL2[2, 2]); //unity_SHAb
+
+        return combined.normalized;
+    }
+
+    private static Vector3 GetSphericalHarmonicsDirection(SphericalHarmonicsL2 sphericalHarmonicsL2)
+    {
+        //combine them all to get the dominant direction
+        Vector3 combined = Vector3.zero;
+
+        //add constant + linear
+        combined += new Vector3(sphericalHarmonicsL2[0, 3], sphericalHarmonicsL2[0, 1], sphericalHarmonicsL2[0, 2]); //unity_SHAr
+        combined += new Vector3(sphericalHarmonicsL2[1, 3], sphericalHarmonicsL2[1, 1], sphericalHarmonicsL2[1, 2]); //unity_SHAg
+        combined += new Vector3(sphericalHarmonicsL2[2, 3], sphericalHarmonicsL2[2, 1], sphericalHarmonicsL2[2, 2]); //unity_SHAb
 
         //add quadratic polynomials
-        combined += new Vector3(unity_SHBr.x, unity_SHBr.y, unity_SHBr.z);
-        combined += new Vector3(unity_SHBg.x, unity_SHBg.y, unity_SHBg.z);
-        combined += new Vector3(unity_SHBb.x, unity_SHBb.y, unity_SHBb.z);
+        combined += new Vector3(sphericalHarmonicsL2[0, 4], sphericalHarmonicsL2[0, 6], sphericalHarmonicsL2[0, 5] * 3); //unity_SHBr
+        combined += new Vector3(sphericalHarmonicsL2[1, 4], sphericalHarmonicsL2[1, 6], sphericalHarmonicsL2[1, 5] * 3); //unity_SHBg
+        combined += new Vector3(sphericalHarmonicsL2[2, 4], sphericalHarmonicsL2[2, 6], sphericalHarmonicsL2[2, 5] * 3); //unity_SHBb
 
         //add final quadratic polynomial
-        combined += new Vector3(unity_SHC.x, unity_SHC.y, unity_SHC.z);
+        combined += new Vector3(sphericalHarmonicsL2[0, 8], sphericalHarmonicsL2[2, 8], sphericalHarmonicsL2[1, 8]); //unity_SHC
 
         return combined.normalized;
     }

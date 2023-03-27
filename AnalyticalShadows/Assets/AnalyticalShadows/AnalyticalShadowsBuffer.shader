@@ -187,9 +187,10 @@
 				float2 uv = i.texcoordStereo.xy;
 				float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
 				float result = tex2D(_ComputeShaderResult, uv).r;
-				float mask = tex2D(_MaskBuffer, uv).r;
+				float mask = saturate(tex2D(_MaskBuffer, uv).r);
 
-				result = lerp(result, 1.0f, mask * _SelfShadowIntensity);
+				//result = lerp(result, 1.0f, mask * _SelfShadowIntensity);
+				result = lerp(result, 1.0f, lerp(mask, 0.0f, _SelfShadowIntensity));
 				result = lerp(1.0f, result, _Intensity);
 				result = saturate(result) * _MaxIntensityClamp + (1 - _MaxIntensityClamp);
 
