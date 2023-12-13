@@ -9,6 +9,7 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
 using static UnityEditor.ShaderData;
 using static UnityEngine.Rendering.PostProcessing.PostProcessResources;
+using AnalyticalShadowsShared;
 
 /*
 TODO:
@@ -278,20 +279,31 @@ namespace AnalyticalShadows
         {
             Setup(context);
 
-            if (settings.rebuildShapes.value) BuildShapeBuffers(context.camera.transform.position, settings.distance.value);
-            if (settings.updateShapes.value) UpdateShapeBuffers();
-            if (postShader == null) return;
+            if (settings.rebuildShapes.value) 
+                BuildShapeBuffers(context.camera.transform.position, settings.distance.value);
+
+            if (settings.updateShapes.value) 
+                UpdateShapeBuffers();
+
+            if (postShader == null)
+            {
+                postShader = Shader.Find("Hidden/AnalyticalShadowsBuffer");
+                return;
+            }
 
             PropertySheet sheet = context.propertySheets.Get(postShader);
             ComputeShader computeShader = settings.computeShader.value;
+            Texture cameraDepthTexture = Shader.GetGlobalTexture("_CameraDepthTexture");
+            Texture cameraDepthNormalsTexture = Shader.GetGlobalTexture("_CameraDepthNormalsTexture");
 
-            useLightmapDirection = settings.directionType.value == AnalyticalShadowsDirectionType.LightmapDirection;
+            if (computeShader == null || cameraDepthTexture == null || cameraDepthNormalsTexture == null)
+                return;
+
+            useLightmapDirection = settings.directionType.value == AnalyticalShadowsDirectionType.StaticLightmapDirection;
             useProbeDirection = settings.directionType.value == AnalyticalShadowsDirectionType.ProbeDirection;
             traceBoxColliders = settings.traceBoxColliders.value;
             traceSphereColliders = settings.traceSphereColliders.value;
             traceCapsuleColliders = settings.traceCapsuleColliders.value;
-
-            if (computeShader == null) return;
 
             context.command.BeginSample("Analytical Shadows");
 
@@ -300,17 +312,6 @@ namespace AnalyticalShadows
             int resolutionY = context.height / settings.downsample.value;
 
             SetupCameraBuffers(context, resolutionX, resolutionY, depthBits);
-
-            //|||||||||||||||||||||||||| WORLD POSITION ||||||||||||||||||||||||||
-            //|||||||||||||||||||||||||| WORLD POSITION ||||||||||||||||||||||||||
-            //|||||||||||||||||||||||||| WORLD POSITION ||||||||||||||||||||||||||
-            var worldPosition = RenderTexture.GetTemporary(resolutionX, resolutionY, depthBits, RenderTextureFormat.ARGBHalf);
-            worldPosition.filterMode = FilterMode.Bilinear;
-
-            Matrix4x4 viewProjMat = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, false) * context.camera.worldToCameraMatrix;
-
-            sheet.properties.SetMatrix("_ViewProjInv", viewProjMat.inverse);
-            context.command.BlitFullscreenTriangle(context.source, worldPosition, sheet, 1);
 
             //|||||||||||||||||||||||||| COMPUTE SHADER ||||||||||||||||||||||||||
             //|||||||||||||||||||||||||| COMPUTE SHADER ||||||||||||||||||||||||||
@@ -327,6 +328,12 @@ namespace AnalyticalShadows
             computeWrite.Create();
 
             int compute_main = computeShader.FindKernel("CSMain");
+
+            computeShader.SetTexture(compute_main, "_CameraDepthTexture", cameraDepthTexture);
+            computeShader.SetTexture(compute_main, "_CameraDepthNormalsTexture", cameraDepthNormalsTexture);
+
+            Matrix4x4 viewProjMat = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, false) * context.camera.worldToCameraMatrix;
+            computeShader.SetMatrix("_ViewProjInv", viewProjMat.inverse);
 
             context.command.SetComputeVectorParam(computeShader, "_RenderResolution", new Vector4(resolutionX, resolutionY, 0, 0));
             context.command.SetComputeFloatParam(computeShader, "_Distance", settings.distance.value);
@@ -372,7 +379,6 @@ namespace AnalyticalShadows
             else
                 SetComputeKeyword(computeShader, "TRACE_BOX_COLLIDERS", false);
 
-            context.command.SetComputeTextureParam(computeShader, compute_main, "WorldPosition", worldPosition);
             context.command.SetComputeTextureParam(computeShader, compute_main, "MaskBuffer", maskBuffer);
             context.command.SetComputeTextureParam(computeShader, compute_main, "Result", computeWrite);
             context.command.DispatchCompute(computeShader, compute_main, Mathf.CeilToInt(resolutionX / 8f), Mathf.CeilToInt(resolutionY / 8f), 1);
@@ -422,8 +428,6 @@ namespace AnalyticalShadows
                 sheet.properties.SetTexture("_ComputeShaderResult", computeWrite);
                 context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 2);
             }
-
-            RenderTexture.ReleaseTemporary(worldPosition);
 
             context.command.EndSample("Analytical Shadows");
         }

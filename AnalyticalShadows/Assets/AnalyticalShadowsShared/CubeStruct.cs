@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AnalyticalShadows
+namespace AnalyticalShadowsShared
 {
     [Serializable]
     public struct CubeStruct

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6469202695426882555
+--- !u!114 &-8470065169871626170
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fb3ff5ce54f7247a3882b4a2fe18d9, type: 3}
-  m_Name: AnalyticalShadows
+  m_Script: {fileID: 11500000, guid: ac3285d9f3cbe1a44a14692a36c9c18e, type: 3}
+  m_Name: AnalyticalShadowsV1
   m_EditorClassIdentifier: 
   active: 1
   enabled:
@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   computeShader:
     overrideState: 1
-    value: {fileID: 7200000, guid: 8fa0241cf9717f54ea50f9131273db9f, type: 3}
+    value: {fileID: 7200000, guid: 6e40f0d500ed3624c9e609b1ec7558d3, type: 3}
   intensity:
     overrideState: 1
     value: 1
@@ -27,25 +27,22 @@ MonoBehaviour:
     value: 1
   selfShadowIntensity:
     overrideState: 1
-    value: 0
+    value: 0.765
   coneAngle:
     overrideState: 1
-    value: 89.5
+    value: 1
   downsample:
     overrideState: 1
     value: 1
-  distance:
-    overrideState: 1
-    value: 67.8
   globalDirection:
     overrideState: 1
-    value: {x: 0, y: 1, z: 0}
+    value: {x: 0, y: 1, z: -3.16}
   directionType:
     overrideState: 1
-    value: 1
+    value: 0
   traceBoxColliders:
     overrideState: 1
-    value: 0
+    value: 1
   traceSphereColliders:
     overrideState: 1
     value: 1
@@ -54,7 +51,7 @@ MonoBehaviour:
     value: 1
   useBilaterialBlur:
     overrideState: 1
-    value: 0
+    value: 1
   highQualityBilaterialBlur:
     overrideState: 1
     value: 0
@@ -82,7 +79,71 @@ MonoBehaviour:
   settings:
   - {fileID: 7940254355833354472}
   - {fileID: 2093856253120812977}
-  - {fileID: -6469202695426882555}
+  - {fileID: -8470065169871626170}
+--- !u!114 &801852894786656425
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3285d9f3cbe1a44a14692a36c9c18e, type: 3}
+  m_Name: AnalyticalShadows
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  computeShader:
+    overrideState: 1
+    value: {fileID: 7200000, guid: 6e40f0d500ed3624c9e609b1ec7558d3, type: 3}
+  intensity:
+    overrideState: 1
+    value: 1
+  maxIntensityClamp:
+    overrideState: 1
+    value: 1
+  selfShadowIntensity:
+    overrideState: 1
+    value: 0
+  coneAngle:
+    overrideState: 1
+    value: 47.2
+  downsample:
+    overrideState: 1
+    value: 1
+  globalDirection:
+    overrideState: 1
+    value: {x: 0, y: 1, z: 0}
+  directionType:
+    overrideState: 1
+    value: 0
+  traceBoxColliders:
+    overrideState: 1
+    value: 1
+  traceSphereColliders:
+    overrideState: 1
+    value: 1
+  traceCapsuleColliders:
+    overrideState: 1
+    value: 1
+  useBilaterialBlur:
+    overrideState: 1
+    value: 0
+  highQualityBilaterialBlur:
+    overrideState: 1
+    value: 0
+  bilaterialGeometryCoeff:
+    overrideState: 0
+    value: 0.8
+  rebuildShapes:
+    overrideState: 1
+    value: 1
+  updateShapes:
+    overrideState: 1
+    value: 1
 --- !u!114 &2093856253120812977
 MonoBehaviour:
   m_ObjectHideFlags: 3

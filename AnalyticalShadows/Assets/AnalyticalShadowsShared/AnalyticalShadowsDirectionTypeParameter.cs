@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-namespace AnalyticalShadows
+namespace AnalyticalShadowsShared
 {
     [Serializable]
     public sealed class AnalyticalShadowsDirectionTypeParameter : ParameterOverride<AnalyticalShadowsDirectionType>

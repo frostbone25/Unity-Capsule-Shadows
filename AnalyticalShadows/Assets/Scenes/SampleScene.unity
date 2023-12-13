@@ -188,7 +188,7 @@ MonoBehaviour:
     height: 0.16026422
     radius: 0.06424611
     rotation: {x: 0.63849896, y: -0.7539295, z: -0.15462618, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &33774132
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 36332522}
   - component: {fileID: 36332521}
   - component: {fileID: 36332520}
-  - component: {fileID: 36332523}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -348,38 +347,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36332518}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &36332523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36332518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 36332521}
-  boxCollider: {fileID: 36332520}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -4.86, y: 0.8499999, z: -7.007}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.8557917, y: 0.32381716, z: 0.40343902}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &64135300
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +467,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 3.13, z: 8.98}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.38200828, y: -0.4489182, z: 0.80780077}
+    sphericalHarmonicDirection: {x: 0.69309926, y: -0.25972322, z: -0.67242646}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -520,7 +487,6 @@ GameObject:
   - component: {fileID: 65039809}
   - component: {fileID: 65039808}
   - component: {fileID: 65039807}
-  - component: {fileID: 65039810}
   m_Layer: 0
   m_Name: Cube (11)
   m_TagString: Untagged
@@ -604,38 +570,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65039805}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &65039810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65039805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 65039808}
-  boxCollider: {fileID: 65039807}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 4.48, y: 7.49, z: 0.29}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.15113623, y: -0.7219002, z: -0.67529106}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &65532153
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +582,6 @@ GameObject:
   - component: {fileID: 65532157}
   - component: {fileID: 65532156}
   - component: {fileID: 65532155}
-  - component: {fileID: 65532158}
   m_Layer: 0
   m_Name: Cube (14)
   m_TagString: Untagged
@@ -732,38 +665,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65532153}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &65532158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65532153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 65532156}
-  boxCollider: {fileID: 65532155}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -7.5200005, y: 3.4699998, z: -9.74}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.7268912, y: 0.3907397, z: 0.56475794}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &68943391
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +677,6 @@ GameObject:
   - component: {fileID: 68943395}
   - component: {fileID: 68943394}
   - component: {fileID: 68943393}
-  - component: {fileID: 68943396}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -860,38 +760,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68943391}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &68943396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68943391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 68943394}
-  boxCollider: {fileID: 68943393}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 0.58, y: 2.64, z: -7.46}
-    size: {x: 2.4348, y: 2.4348, z: 2.4348}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.9905598, y: -0.05610601, z: 0.12507343}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &86808509
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +772,6 @@ GameObject:
   - component: {fileID: 86808513}
   - component: {fileID: 86808512}
   - component: {fileID: 86808511}
-  - component: {fileID: 86808514}
   m_Layer: 0
   m_Name: Cube (12)
   m_TagString: Untagged
@@ -988,38 +855,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86808509}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &86808514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86808509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 86808512}
-  boxCollider: {fileID: 86808511}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -7.5200005, y: 0.8499999, z: -7.007}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.58840877, y: 0.7137853, z: 0.37984964}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &99291866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +948,6 @@ GameObject:
   - component: {fileID: 114478213}
   - component: {fileID: 114478212}
   - component: {fileID: 114478211}
-  - component: {fileID: 114478214}
   m_Layer: 0
   m_Name: Cube (9)
   m_TagString: Untagged
@@ -1197,38 +1031,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114478209}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114478214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114478209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 114478212}
-  boxCollider: {fileID: 114478211}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 1.84, y: 5.14, z: -10.13}
-    size: {x: 4.058979, y: 2.0250027, z: 7.1371126}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: -0.085534856, y: -0.21845469, z: 0.97209126}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &191045559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1244,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 0.857, z: 6.8}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.95261425, y: 0.056530736, z: -0.29888174}
+    sphericalHarmonicDirection: {x: 0.9482223, y: 0.21087408, z: 0.23750076}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -1596,7 +1398,7 @@ MonoBehaviour:
     height: 0.23943299
     radius: 0.06382669
     rotation: {x: 0.9562972, y: -0.021552712, z: -0.29160216, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &223627314
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1950,7 +1752,7 @@ MonoBehaviour:
     height: 1
     radius: 0.5
     rotation: {x: 0, y: 0, z: 1, w: 0}
-    sphericalHarmonicDirection: {x: 0.06544673, y: 0.177525, z: -0.9819377}
+    sphericalHarmonicDirection: {x: -0.35592914, y: 0.47248745, z: -0.8062692}
 --- !u!1 &255471181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +1924,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 3.13, z: 8.98}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.6722689, y: 0.39286426, z: 0.62746483}
+    sphericalHarmonicDirection: {x: -0.72771865, y: -0.010294668, z: 0.68579847}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -2331,7 +2133,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 6.37, z: 12.61}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.95933366, y: -0.09910625, z: 0.26430455}
+    sphericalHarmonicDirection: {x: -0.39963678, y: -0.88395387, z: 0.24272622}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -2351,7 +2153,6 @@ GameObject:
   - component: {fileID: 322398041}
   - component: {fileID: 322398040}
   - component: {fileID: 322398039}
-  - component: {fileID: 322398042}
   m_Layer: 0
   m_Name: Cube (15)
   m_TagString: Untagged
@@ -2435,38 +2236,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322398037}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &322398042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322398037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 322398040}
-  boxCollider: {fileID: 322398039}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -7.5200005, y: 4.6, z: -10.84}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.6460765, y: 0.11822482, z: 0.75406104}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &324772286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,7 +2401,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: 0.36, y: 0.83, z: 2.53}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.833414, y: 0.2957068, z: 0.46688175}
+    sphericalHarmonicDirection: {x: 0.9216195, y: 0.34367046, z: 0.18030009}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -2705,7 +2474,7 @@ MonoBehaviour:
     height: 0.16026434
     radius: 0.064246155
     rotation: {x: 0.61525476, y: 0.76336414, z: -0.19681895, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &371481757
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2781,7 +2550,6 @@ GameObject:
   - component: {fileID: 371500416}
   - component: {fileID: 371500415}
   - component: {fileID: 371500414}
-  - component: {fileID: 371500417}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2865,38 +2633,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371500412}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &371500417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371500412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 371500415}
-  boxCollider: {fileID: 371500414}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 4.41, y: 0.5, z: -2.46}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: -0.49756688, y: 0.8641365, z: 0.07546638}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &372422820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,7 +2761,7 @@ MonoBehaviour:
     height: 2.1215918
     radius: 0.44199464
     rotation: {x: 0.018428773, y: 0.40877295, z: 0.91245, w: 0}
-    sphericalHarmonicDirection: {x: 0.7471014, y: 0.40535644, z: 0.52680707}
+    sphericalHarmonicDirection: {x: -0.82750714, y: -0.2895316, z: 0.4810441}
 --- !u!1 &388023404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,7 +2774,6 @@ GameObject:
   - component: {fileID: 388023408}
   - component: {fileID: 388023407}
   - component: {fileID: 388023406}
-  - component: {fileID: 388023409}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -3122,38 +2857,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388023404}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &388023409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388023404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 388023407}
-  boxCollider: {fileID: 388023406}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 4.651, y: 6.74, z: -0.98}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: -0.24808067, y: -0.9686237, z: -0.014970118}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &398285007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,7 +2950,6 @@ GameObject:
   - component: {fileID: 439268156}
   - component: {fileID: 439268155}
   - component: {fileID: 439268154}
-  - component: {fileID: 439268157}
   m_Layer: 0
   m_Name: Cube (16)
   m_TagString: Untagged
@@ -3331,38 +3033,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439268152}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &439268157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439268152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 439268155}
-  boxCollider: {fileID: 439268154}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -7.5200005, y: 5.91, z: -12.26}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.51704, y: -0.116038784, z: 0.84805936}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &530953795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3681,7 +3351,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 4.23, z: 10.17}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.8023392, y: 0.3385522, z: 0.49156314}
+    sphericalHarmonicDirection: {x: -0.5405829, y: -0.16117841, z: 0.8257067}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -3701,7 +3371,6 @@ GameObject:
   - component: {fileID: 671612420}
   - component: {fileID: 671612419}
   - component: {fileID: 671612418}
-  - component: {fileID: 671612421}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -3785,38 +3454,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671612416}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &671612421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671612416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 671612419}
-  boxCollider: {fileID: 671612418}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -4.86, y: 2.09, z: -8.49}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.5403289, y: 0.08422498, z: 0.83722806}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &680139118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,7 +3519,7 @@ MonoBehaviour:
     height: 0.23943284
     radius: 0.06382666
     rotation: {x: 0.9521816, y: 0.0071209967, z: -0.3054496, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &680139121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4066,7 +3703,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: 4.78, y: 7.43, z: -2.41}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.08889244, y: -0.93960184, z: -0.33052465}
+    sphericalHarmonicDirection: {x: -0.43068692, y: -0.8789934, z: -0.20464449}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -4275,7 +3912,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: 4.85, y: 3.591, z: 2.705}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: -0.06997642, y: -0.4813767, z: -0.87371606}
+    sphericalHarmonicDirection: {x: -0.18142286, y: -0.37211165, z: 0.91028494}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -4411,7 +4048,7 @@ MonoBehaviour:
     height: 17.151
     radius: 0.5
     rotation: {x: 0, y: 0, z: 1, w: 0}
-    sphericalHarmonicDirection: {x: 0.68447137, y: 0.37397105, z: -0.6258151}
+    sphericalHarmonicDirection: {x: 0.7015214, y: 0.29078656, z: -0.6506235}
 --- !u!1 &838247204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4215,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 4.23, z: 10.17}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.65071136, y: -0.38847867, z: 0.6524255}
+    sphericalHarmonicDirection: {x: 0.6635664, y: -0.102752395, z: -0.7410274}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -4598,7 +4235,6 @@ GameObject:
   - component: {fileID: 954193082}
   - component: {fileID: 954193081}
   - component: {fileID: 954193080}
-  - component: {fileID: 954193083}
   m_Layer: 0
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -4682,38 +4318,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954193078}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &954193083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954193078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 954193081}
-  boxCollider: {fileID: 954193080}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -4.86, y: 5.91, z: -12.26}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.115451835, y: -0.94742864, z: 0.29841217}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4858,6 +4462,8 @@ MonoBehaviour:
   m_BeforeTransparentBundles:
   - assemblyQualifiedName: AnalyticalShadows.AnalyticalShadows, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - assemblyQualifiedName: AnalyticalShadowsV1.AnalyticalShadowsV1, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
 --- !u!1 &972901329
@@ -4980,7 +4586,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 2.06, z: 7.83}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.72444516, y: 0.6468934, z: 0.2381347}
+    sphericalHarmonicDirection: {x: -0.7118571, y: 0.5677345, z: 0.41344538}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -5000,7 +4606,6 @@ GameObject:
   - component: {fileID: 973302094}
   - component: {fileID: 973302093}
   - component: {fileID: 973302092}
-  - component: {fileID: 973302096}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -5084,38 +4689,6 @@ Transform:
   m_Father: {fileID: 1759813525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &973302096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973302091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 973302093}
-  boxCollider: {fileID: 973302092}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 1.74, y: 0.71, z: 0}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.14530519, y: 0.87185895, z: 0.4677054}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1040388076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,7 +4754,7 @@ MonoBehaviour:
     height: 0.11193189
     radius: 0.03585651
     rotation: {x: 0.587719, y: -0.78559, z: -0.19347799, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1040388079
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5257,7 +4830,6 @@ GameObject:
   - component: {fileID: 1107802567}
   - component: {fileID: 1107802566}
   - component: {fileID: 1107802565}
-  - component: {fileID: 1107802568}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -5341,38 +4913,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107802563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1107802568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107802563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1107802566}
-  boxCollider: {fileID: 1107802565}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: 5.71, y: 0.76, z: 4.95}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.08499801, y: -0.9927885, z: 0.084536195}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1112742042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5545,6 +5085,10 @@ PrefabInstance:
     - target: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_Name
       value: Ethan
+      objectReference: {fileID: 0}
+    - target: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_RootOrder
@@ -5737,7 +5281,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -1.1751907, y: 0.8939006, z: 10.142626}
     radius: 0.121243544
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -5776,7 +5320,7 @@ MonoBehaviour:
     height: 0.13000003
     radius: 0.050000023
     rotation: {x: 0.89097154, y: 0.0000011622906, z: -0.45405954, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5822,7 +5366,7 @@ MonoBehaviour:
     height: 0.13000001
     radius: 0.050000023
     rotation: {x: 0.9628446, y: 0.15797268, z: -0.21903254, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812627
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5861,7 +5405,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -0.19438931, y: 0.90630066, z: 9.897771}
     radius: 0.12124358
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -5926,7 +5470,7 @@ MonoBehaviour:
     height: 0.13499999
     radius: 0.10000002
     rotation: {x: -0.9562821, y: -0.0000010728836, z: 0.29244587, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812632
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5972,7 +5516,7 @@ MonoBehaviour:
     height: 0.2
     radius: 0.13000003
     rotation: {x: -0.9562822, y: -0.000001013279, z: 0.29244578, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6018,7 +5562,7 @@ MonoBehaviour:
     height: 0.14500003
     radius: 0.070000015
     rotation: {x: -0.9562822, y: -0.000001013279, z: 0.29244578, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812636
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6064,7 +5608,7 @@ MonoBehaviour:
     height: 0.16500005
     radius: 0.090000026
     rotation: {x: -0.9562834, y: 0, z: 0.29244184, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1143812638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6091,7 +5635,6 @@ GameObject:
   - component: {fileID: 1170474437}
   - component: {fileID: 1170474436}
   - component: {fileID: 1170474435}
-  - component: {fileID: 1170474438}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -6175,38 +5718,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170474433}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1170474438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170474433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1170474436}
-  boxCollider: {fileID: 1170474435}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -4.86, y: 3.4699998, z: -9.74}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.1171981, y: -0.22782181, z: 0.96662396}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1197048258
 GameObject:
   m_ObjectHideFlags: 0
@@ -8228,7 +7739,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1223618189
+--- !u!1 &1210160644
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8236,51 +7747,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1223618193}
-  - component: {fileID: 1223618192}
-  - component: {fileID: 1223618191}
-  - component: {fileID: 1223618190}
+  - component: {fileID: 1210160645}
+  - component: {fileID: 1210160647}
+  - component: {fileID: 1210160646}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: AnalyticalShadowsSceneBased
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1223618190
-MeshCollider:
+--- !u!4 &1210160645
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223618189}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1223618191
+  m_GameObject: {fileID: 1210160644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_Children: []
+  m_Father: {fileID: 1223534271}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1210160646
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223618189}
+  m_GameObject: {fileID: 1210160644}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b75cdd50a2f5a747ad72fb99149d7e6, type: 2}
+  - {fileID: 2100000, guid: a62e547be484f5f409b2dd801760dff2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8302,27 +7812,109 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1223618192
+--- !u!33 &1210160647
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223618189}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1223618193
+  m_GameObject: {fileID: 1210160644}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1223534267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1223534271}
+  - component: {fileID: 1223534270}
+  - component: {fileID: 1223534269}
+  - component: {fileID: 1223534268}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1223534268
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223534267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1223534269
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223534267}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1223534270
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223534267}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1223534271
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223618189}
+  m_GameObject: {fileID: 1223534267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.0256, y: 5.08, z: -0.5856688}
-  m_LocalScale: {x: 2.6228, y: 2.6228, z: 2.6228}
-  m_Children: []
+  m_LocalPosition: {x: -0.675, y: 0.5, z: -5.797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1210160645}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224016010
 GameObject:
@@ -8444,7 +8036,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 2.06, z: 7.83}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: -0.18321928, y: -0.96461624, z: 0.18959507}
+    sphericalHarmonicDirection: {x: 0.63872933, y: -0.36691043, z: -0.6763147}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -8452,6 +8044,103 @@ MonoBehaviour:
     radius: 0
     rotation: {x: 0, y: 0, z: 0, w: 0}
     sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
+--- !u!1 &1288345698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288345702}
+  - component: {fileID: 1288345701}
+  - component: {fileID: 1288345700}
+  - component: {fileID: 1288345699}
+  m_Layer: 0
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!136 &1288345699
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288345698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1288345700
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288345698}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1288345701
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288345698}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1288345702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288345698}
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: -0.00000008940696}
+  m_LocalPosition: {x: 2.65, y: 0.23, z: -7.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2082546709}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!1 &1363015969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8464,7 +8153,6 @@ GameObject:
   - component: {fileID: 1363015973}
   - component: {fileID: 1363015972}
   - component: {fileID: 1363015971}
-  - component: {fileID: 1363015974}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -8548,38 +8236,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363015969}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1363015974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363015969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1363015972}
-  boxCollider: {fileID: 1363015971}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -4.86, y: 4.6, z: -10.84}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.38862386, y: -0.43804905, z: 0.81060743}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1378413995
 GameObject:
   m_ObjectHideFlags: 0
@@ -8781,7 +8437,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: 3.77, y: 1.16, z: 9.03}
     radius: 1.7659123
-    sphericalHarmonicDirection: {x: 0.24069844, y: 0.3948141, z: -0.88667136}
+    sphericalHarmonicDirection: {x: -0.2582574, y: 0.21560924, z: -0.941709}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -8801,7 +8457,6 @@ GameObject:
   - component: {fileID: 1393030983}
   - component: {fileID: 1393030982}
   - component: {fileID: 1393030981}
-  - component: {fileID: 1393030984}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -8885,38 +8540,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393030979}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1393030984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393030979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2491dc0c3aa043bd5a539ba8ba281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1393030982}
-  boxCollider: {fileID: 1393030981}
-  sphereCollider: {fileID: 0}
-  capsuleCollider: {fileID: 0}
-  cubeStruct:
-    position: {x: -7.5200005, y: 2.09, z: -8.49}
-    size: {x: 1, y: 1, z: 1}
-    rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.7426402, y: 0.60365653, z: 0.28997302}
-  sphereStruct:
-    position: {x: 0, y: 0, z: 0}
-    radius: 0
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
-  capsuleStruct:
-    position: {x: 0, y: 0, z: 0}
-    direction: {x: 0, y: 0, z: 0}
-    height: 0
-    radius: 0
-    rotation: {x: 0, y: 0, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1419458537
 GameObject:
   m_ObjectHideFlags: 0
@@ -9037,7 +8660,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 5.36, z: 11.38}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.98958874, y: 0.006467832, z: 0.14377877}
+    sphericalHarmonicDirection: {x: -0.24225213, y: -0.9087976, z: 0.33970684}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -9158,7 +8781,7 @@ MonoBehaviour:
     height: 0.21924621
     radius: 0.06983277
     rotation: {x: 0.95146143, y: 0.07029945, z: -0.2996332, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1495367267
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9431,7 +9054,7 @@ MonoBehaviour:
     height: 4.419984
     radius: 0.92082226
     rotation: {x: -0.92832863, y: 0.23889041, z: 0.28484645, w: 0}
-    sphericalHarmonicDirection: {x: 0.2539128, y: -0.25352788, z: 0.93340874}
+    sphericalHarmonicDirection: {x: -0.929694, y: -0.36634523, z: -0.03821239}
 --- !u!1 &1620762441
 GameObject:
   m_ObjectHideFlags: 0
@@ -9497,7 +9120,7 @@ MonoBehaviour:
     height: 0.11193201
     radius: 0.035856538
     rotation: {x: 0.62069386, y: 0.75716686, z: -0.20356359, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1620762444
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9681,7 +9304,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 5.36, z: 11.38}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.80920905, y: -0.2978723, z: 0.5064118}
+    sphericalHarmonicDirection: {x: 0.6469337, y: -0.107879445, z: -0.7548767}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -9817,7 +9440,7 @@ MonoBehaviour:
     height: 4.419982
     radius: 0.920822
     rotation: {x: 0, y: 0, z: 1, w: 0}
-    sphericalHarmonicDirection: {x: 0.25207698, y: -0.7004685, z: -0.6676834}
+    sphericalHarmonicDirection: {x: 0.25909847, y: -0.40320554, z: -0.8776635}
 --- !u!1 &1753709579
 GameObject:
   m_ObjectHideFlags: 0
@@ -9883,7 +9506,7 @@ MonoBehaviour:
     height: 0.2192462
     radius: 0.069832765
     rotation: {x: 0.9523873, y: -0.054866232, z: -0.29991478, w: 0}
-    sphericalHarmonicDirection: {x: 0.588184, y: 0.19724149, z: -0.78430563}
+    sphericalHarmonicDirection: {x: 0.46530986, y: 0.16067956, z: -0.8704417}
 --- !u!136 &1753709582
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10122,7 +9745,7 @@ MonoBehaviour:
     height: 1
     radius: 0.5
     rotation: {x: 0, y: 0, z: 1, w: 0}
-    sphericalHarmonicDirection: {x: 0.33044687, y: -0.68521863, z: -0.6490611}
+    sphericalHarmonicDirection: {x: 0.54763854, y: -0.8202034, z: -0.16540395}
 --- !u!1 &1870012257
 GameObject:
   m_ObjectHideFlags: 0
@@ -10243,7 +9866,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -4.7, y: 6.37, z: 12.61}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.5246592, y: -0.78265256, z: 0.33494443}
+    sphericalHarmonicDirection: {x: 0.5749826, y: -0.48519427, z: -0.6587727}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -10380,7 +10003,7 @@ MonoBehaviour:
     height: 4.4199834
     radius: 0.9208222
     rotation: {x: 0.018428773, y: 0.40877295, z: 0.91245, w: 0}
-    sphericalHarmonicDirection: {x: 0.740018, y: 0.35801664, z: 0.56938344}
+    sphericalHarmonicDirection: {x: -0.6535536, y: -0.28318655, z: 0.70190674}
 --- !u!1 &1899131091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10413,6 +10036,87 @@ Transform:
   - {fileID: 637673160}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2082546706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082546709}
+  - component: {fileID: 2082546708}
+  - component: {fileID: 2082546707}
+  m_Layer: 0
+  m_Name: AnalyticalShadowsSceneBased
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &2082546707
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082546706}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9a9f9357a58a7534e866824414b30a23, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2082546708
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082546706}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2082546709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082546706}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_Children: []
+  m_Father: {fileID: 1288345702}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109914060
 GameObject:
@@ -10696,7 +10400,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -7.36, y: 0.857, z: 6.8}
     radius: 0.8660254
-    sphericalHarmonicDirection: {x: 0.41001487, y: 0.7431305, z: 0.5288146}
+    sphericalHarmonicDirection: {x: -0.6239911, y: 0.5749553, z: 0.5292085}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -12569,7 +12273,7 @@ MonoBehaviour:
   sphereStruct:
     position: {x: -11.8312025, y: 0.65170604, z: -13.240234}
     radius: 0.63585585
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   capsuleStruct:
     position: {x: 0, y: 0, z: 0}
     direction: {x: 0, y: 0, z: 0}
@@ -12616,7 +12320,7 @@ MonoBehaviour:
     position: {x: -11.118014, y: 1.1021694, z: -17.325127}
     size: {x: 0.1376668, y: 0.61032283, z: 0.7158679}
     rotation: {x: 0.5391262, y: 0.84222484, z: -0.00049112295, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -12729,7 +12433,7 @@ MonoBehaviour:
     height: 2.0328805
     radius: 0.32122266
     rotation: {x: 0.00000031907538, y: -1.0000001, z: -0.00000011920932, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
 --- !u!1 &6287927441791134094
 GameObject:
   m_ObjectHideFlags: 0
@@ -12769,7 +12473,7 @@ MonoBehaviour:
     position: {x: -10.315242, y: 0.5504018, z: -14.902981}
     size: {x: 3.6711154, y: 0.2294447, z: 0.45888942}
     rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -13062,7 +12766,7 @@ MonoBehaviour:
     height: 2.0328805
     radius: 0.32122266
     rotation: {x: 0, y: -1.0000001, z: -0.00000011920929, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
 --- !u!1 &6287927441791134132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13102,7 +12806,7 @@ MonoBehaviour:
     position: {x: -13.344758, y: 0.55040175, z: -14.902981}
     size: {x: 3.6711154, y: 0.2294447, z: 0.45888942}
     rotation: {x: 0, y: 1, z: 0, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -13243,7 +12947,7 @@ MonoBehaviour:
     position: {x: -12.544694, y: 1.1021715, z: -17.325127}
     size: {x: 0.13766684, y: 0.61032283, z: 0.71586746}
     rotation: {x: -0.53910863, y: 0.8422247, z: 0.0043996223, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -13294,7 +12998,7 @@ MonoBehaviour:
     position: {x: -13.810212, y: 0.5504002, z: -15.555025}
     size: {x: 2.7533364, y: 0.2294447, z: 0.4588894}
     rotation: {x: -0.0000005231707, y: 1, z: 0.0000018090069, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -13355,7 +13059,7 @@ MonoBehaviour:
     height: 1.3216019
     radius: 0.22944476
     rotation: {x: 0.00000031907538, y: -1.0000001, z: -0.00000011920932, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
 --- !u!1 &6287927441791134150
 GameObject:
   m_ObjectHideFlags: 0
@@ -13421,7 +13125,7 @@ MonoBehaviour:
     height: 1.2871851
     radius: 0.4543006
     rotation: {x: 0.00000031907538, y: -1.0000001, z: -0.00000011920932, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
 --- !u!1 &6287927441791134162
 GameObject:
   m_ObjectHideFlags: 0
@@ -13461,7 +13165,7 @@ MonoBehaviour:
     position: {x: -9.849789, y: 0.5504002, z: -15.555025}
     size: {x: 2.7533364, y: 0.2294447, z: 0.4588894}
     rotation: {x: 0.0000002965123, y: 1, z: 0.0000021097949, w: 0}
-    sphericalHarmonicDirection: {x: 0.87226206, y: 0.328613, z: -0.36217737}
+    sphericalHarmonicDirection: {x: -0.1348459, y: -0.024967302, z: -0.99055195}
   sphereStruct:
     position: {x: 0, y: 0, z: 0}
     radius: 0
@@ -13542,7 +13246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6287927441791134174
 GameObject:
   m_ObjectHideFlags: 0

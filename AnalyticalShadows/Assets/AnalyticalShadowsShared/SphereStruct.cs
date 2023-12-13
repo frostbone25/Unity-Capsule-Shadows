@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-namespace AnalyticalShadows
+namespace AnalyticalShadowsShared
 {
     [Serializable]
     public struct SphereStruct

@@ -49,16 +49,46 @@ RWStructuredBuffer<CapsuleStruct> Capsules;
 //|||||||||||||||||||||||||||||||||||||| TEXTURES ||||||||||||||||||||||||||||||||||||||
 
 float2 _RenderResolution;
-Texture2D<float4> WorldPosition;
+Texture2D<float> _CameraDepthTexture;
 Texture2D<float4> DirectionalBuffer;
 RWTexture2D<float4> Result;
 
 SamplerState _PointClamp;
 SamplerState _LinearClamp;
 
+float TEX2D_SHARP(Texture2D<float> tex, float2 uv)
+{
+    return tex.SampleLevel(_PointClamp, uv, 0);
+}
+
+float2 TEX2D_SHARP(Texture2D<float2> tex, float2 uv)
+{
+    return tex.SampleLevel(_PointClamp, uv, 0);
+}
+
+float3 TEX2D_SHARP(Texture2D<float3> tex, float2 uv)
+{
+    return tex.SampleLevel(_PointClamp, uv, 0);
+}
+
 float4 TEX2D_SHARP(Texture2D<float4> tex, float2 uv)
 {
     return tex.SampleLevel(_PointClamp, uv, 0);
+}
+
+float TEX2D(Texture2D<float> tex, float2 uv)
+{
+    return tex.SampleLevel(_LinearClamp, uv, 0);
+}
+
+float2 TEX2D(Texture2D<float2> tex, float2 uv)
+{
+    return tex.SampleLevel(_LinearClamp, uv, 0);
+}
+
+float3 TEX2D(Texture2D<float3> tex, float2 uv)
+{
+    return tex.SampleLevel(_LinearClamp, uv, 0);
 }
 
 float4 TEX2D(Texture2D<float4> tex, float2 uv)
@@ -74,6 +104,8 @@ float _OccluderRadiusMultiplier;
 float _ConeAngle;
 float _Distance;
 float3 _GlobalDirection;
+
+float4x4 _ViewProjInv;
 
 //|||||||||||||||||||||||||||||||||||||||||||||| SHADER TOY VERSION ||||||||||||||||||||||||||||||||||||||||||||||
 //|||||||||||||||||||||||||||||||||||||||||||||| SHADER TOY VERSION ||||||||||||||||||||||||||||||||||||||||||||||
@@ -744,7 +776,20 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 {
     float2 uv = (id.xy + float2(0.5, 0.5)) / _RenderResolution;
     float result = 1.0;
-    float3 worldPosition = TEX2D(WorldPosition, uv).xyz;
+
+    float cameraDepthColor = TEX2D(_CameraDepthTexture, uv);
+    float4 computedWorldPosition = float4(0, 0, 0, 1);
+    computedWorldPosition.x = (uv.x * 2.0f) - 1.0f;
+    computedWorldPosition.y = (uv.y * 2.0f) - 1.0f;
+    computedWorldPosition.z = cameraDepthColor.r;
+    computedWorldPosition = mul(_ViewProjInv, computedWorldPosition);
+    computedWorldPosition /= computedWorldPosition.w;
+
+
+
+
+
+
     float4 cone = GetConeProperties(uv);
 
     #if defined (TRACE_SPHERE_COLLIDERS)
@@ -754,9 +799,9 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
             #if defined (USE_PROBE_DIRECTION)
                 float4 newCone = float4(sphere.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
-                result *= directionalOcclusionSphere(worldPosition, sphere.position, sphere.radius, newCone);
+                result *= directionalOcclusionSphere(computedWorldPosition, sphere.position, sphere.radius, newCone);
             #else
-                result *= directionalOcclusionSphere(worldPosition, sphere.position, sphere.radius, cone);
+                result *= directionalOcclusionSphere(computedWorldPosition, sphere.position, sphere.radius, cone);
             #endif
         }
     #endif
@@ -769,9 +814,9 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
             #if defined (USE_PROBE_DIRECTION)
                 float4 newCone = float4(cube.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
-                result *= directionalOcclusionCube(worldPosition, cube.position, cube.size, cube.rotation, newCone);
+                result *= directionalOcclusionCube(computedWorldPosition, cube.position, cube.size, cube.rotation, newCone);
             #else
-                result *= directionalOcclusionCube(worldPosition, cube.position, cube.size, cube.rotation, cone);
+                result *= directionalOcclusionCube(computedWorldPosition, cube.position, cube.size, cube.rotation, cone);
             #endif
         }
     #endif
@@ -786,12 +831,12 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
             #if defined (USE_PROBE_DIRECTION)
                 float4 newCone = float4(capsule.sphericalHarmonicDirection, radians(_ConeAngle) * 0.5);
-                //result *= ShapeFunction(worldPosition, float3 dir, float3 capsulePos, float length, float radius)
-                result *= directionalOcclusionCapsule(worldPosition, endA, endB, capsule.radius, newCone);
-                //result += EvaluateCapsuleAmbientOcclusion(0, worldPosition, capsule.direction, 0.0f, capsule.radius, capsule.radius, float3(0, 1, 1));
+                //result *= ShapeFunction(computedWorldPosition, float3 dir, float3 capsulePos, float length, float radius)
+                result *= directionalOcclusionCapsule(computedWorldPosition, endA, endB, capsule.radius, newCone);
+                //result += EvaluateCapsuleAmbientOcclusion(0, computedWorldPosition, capsule.direction, 0.0f, capsule.radius, capsule.radius, float3(0, 1, 1));
 
             #else
-                result *= directionalOcclusionCapsule(worldPosition, endA, endB, capsule.radius, cone);
+                result *= directionalOcclusionCapsule(computedWorldPosition, endA, endB, capsule.radius, cone);
             #endif
         }
     #endif

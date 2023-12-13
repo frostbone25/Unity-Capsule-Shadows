@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using AnalyticalShadowsShared;
 
-namespace AnalyticalShadows
+namespace AnalyticalShadowsV1
 {
     [Serializable]
-    [PostProcess(typeof(AnalyticalShadowsRenderer), PostProcessEvent.BeforeTransparent, "Custom/AnalyticalShadows")]
-    public sealed class AnalyticalShadows : PostProcessEffectSettings
+    [PostProcess(typeof(AnalyticalShadowsV1Renderer), PostProcessEvent.BeforeTransparent, "Custom/AnalyticalShadowsV1")]
+    public sealed class AnalyticalShadowsV1 : PostProcessEffectSettings
     {
         [Header("Setup")]
         public ComputeShaderParameter computeShader = new ComputeShaderParameter() { value = null };
@@ -22,7 +23,6 @@ namespace AnalyticalShadows
 
         [Header("Rendering")]
         [Range(1, 32)] public IntParameter downsample = new IntParameter() { value = 4 };
-        public FloatParameter distance = new FloatParameter() { value = 75.0f };
         public Vector3Parameter globalDirection = new Vector3Parameter() { value = new Vector3(0, 1, 0) };
         public AnalyticalShadowsDirectionTypeParameter directionType = new AnalyticalShadowsDirectionTypeParameter() { value = AnalyticalShadowsDirectionType.GlobalDirection };
         public BoolParameter traceBoxColliders = new BoolParameter() { value = true };
