@@ -22,13 +22,15 @@ Capsule shadows for dynamic objects.
 
 **NOTE: Constructed on the Built-In Rendering Pipeline.**
 
-# Context
+# Info
+
+## Why use it
 
 This effect is meant to be used to help ground dynamic objects with static objects, which is typical after when lightmapping scenes that are using purely baked lighting. This effect is akin to analytical shadows in that it uses primitives to cast shadows i.e. Box, Spheres, and Capsules. It uses Unity PhysX colliders to it's advantage to get those primitive shapes that normally would be defined for dynamic objects/characters. So if you already have a bunch of colliders for your characters/objects defined then this effect should be very trivial to implement.
 
 It also drives me up the wall that there is at the time of writing no public implementation of this effect implemented in Unity (or other engines). For how useful the effect is for grounding dynamic objects in your scene its very transformative, so your welcome. If you'd like to also contribute to this effect and help make it better than please feel free!
 
-# How it works...
+## How it works
 
 So the general steps for the effect is the following...
 
@@ -47,7 +49,7 @@ The last thing that is done is that a camera world position render target is als
 
 After that, we get the resulting render target from that, and do a bilaterial blur (since the tracing is done at a low resolution) to smooth it out. Then it's composited back into the main scene color.
 
-# TODO
+## Future Ideas/Plans
 
 Some things I want to do, and things I would like to get help with...
 
@@ -60,7 +62,9 @@ Some things I want to do, and things I would like to get help with...
 - Implement a LUT generation for the cone angle as proposed in the [first last of us paper](http://miciwan.com/SIGGRAPH2013/Lighting%20Technology%20of%20The%20Last%20Of%20Us.pdf).
 - A better/more efficent way to obtain shadow casters. Currently grabbing them all globally is a bad idea, perhaps a pre-existing list of shadow casters might help?
 
-### Sources/Credits
+## Sources/Credits
+
+Sources that I've used directly (or have helped me indirectly)...
 
 - [ShaderToy: Capsule shadow by romainguy](https://www.shadertoy.com/view/3stcD4)
 - [Lighting Technology of The Last of Us Part II](https://history.siggraph.org/learning/lighting-technology-of-the-last-of-us-part-ii-by-doghramachi/)
