@@ -2,8 +2,6 @@
 
 A work in progress solution for capsule shadows in Unity.
 
-***More details will be revealed but it's very much a work in progress...***
-
 # Results
 ![char1](GithubContent/char1.png)
 
@@ -14,11 +12,12 @@ A work in progress solution for capsule shadows in Unity.
 Capsule shadows for dynamic objects.
 
 - Adjustable softness via cone angle.
-- Self shadowing support.
+- Self-shadowing support.
 - Supports capsules, spheres, boxes (wip).
 - Sample light directionality from multiple sources (Lightmap Directionality, Spherical Harmonics via Probes, or a Global Direction).
-- Bilaterial filter for upsampling when the effect is performed at a lower resolution.
+- Bilateral filter for upsampling when the effect is performed at a lower resolution.
 - Compute Shader based.
+- Scene-based variant that works without any post-processing *(requires camera depth texture)* and is per-object.
 
 **NOTE: Constructed on the Built-In Rendering Pipeline.**
 
