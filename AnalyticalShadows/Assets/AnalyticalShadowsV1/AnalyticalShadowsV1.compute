@@ -111,34 +111,26 @@ float4x4 _ViewProjInv;
 */
 float SphericalCapsIntersectionAreaFast(float cosCap1, float cosCap2, float cap2, float cosDistance)
 {
-    // Oat and Sander 2007, "Ambient Aperture Lighting"
-    // Approximation mentioned by Jimenez et al. 2016
-    float radius1 = acosFastPositive(cosCap1); //First caps radius (arc length in radians)
-    float radius2 = cap2; //Second caps radius (in radians)
-    float dist = acosFast(cosDistance); //Distance between caps (radians between centers of caps)
+    // Precompute constants
+    float radius1 = acosFastPositive(cosCap1); // First caps radius (arc length in radians)
+    float radius2 = cap2; // Second caps radius (in radians)
+    float dist = acosFast(cosDistance); // Distance between caps (radians between centers of caps)
 
-    // We work with cosine angles, replace the original paper's use of
-    // cos(min(radius1, radius2)) with max(cosCap1, cosCap2)
-    // 
-    // We also remove a multiplication by 2 * PI to simplify the computation
-    // since we divide by 2 * PI at the call site
+    // Conditional expressions instead of if-else
+    float check1 = min(radius1, radius2) <= max(radius1, radius2) - dist;
+    float check2 = radius1 + radius2 <= dist;
 
-    if (min(radius1, radius2) <= max(radius1, radius2) - dist)
-    {
-        return 1.0 - max(cosCap1, cosCap2);
-    }
-    else if (radius1 + radius2 <= dist)
-    {
-        return 0.0;
-    }
+    // Ternary operator to replace if-else
+    float result = check1 ? (1.0 - max(cosCap1, cosCap2)) : (check2 ? 0.0 : 1.0 - max(cosCap1, cosCap2));
 
     float delta = abs(radius1 - radius2);
-    float x = 1.0 - saturate((dist - delta) / max(radius1 + radius2 - delta, 0.0001));
+    float x = 1.0 - saturate((dist - delta) / max(radius1 + radius2 - delta, EPSILON));
 
     // simplified smoothstep()
     float area = sq(x) * (-2.0 * x + 3.0);
 
-    return area * (1.0 - max(cosCap1, cosCap2));
+    // Multiply by (1.0 - max(cosCap1, cosCap2)) only once
+    return area * result;
 }
 
 float directionalOcclusionSphere(float3 rayPosition, float3 spherePosition, float sphereRadius, float4 coneProperties)
@@ -217,10 +209,6 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     computedWorldPosition.z = cameraDepthColor.r;
     computedWorldPosition = mul(_ViewProjInv, computedWorldPosition);
     computedWorldPosition /= computedWorldPosition.w;
-
-    //Result[id.xy] = float4(computedWorldPosition.xyz, 1);
-
-    //return;
 
     float4 cone = GetConeProperties(uv);
 

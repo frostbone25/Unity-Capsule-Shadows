@@ -63,8 +63,6 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
             float _CapsuleHeight;
             float _CapsuleRadius;
 
-            float3 _CubeSize;
-
             float3 _GlobalDirection;
             float _ConeAngle;
             float _Intensity;
@@ -77,34 +75,29 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
             */
             float SphericalCapsIntersectionAreaFast(float cosCap1, float cosCap2, float cap2, float cosDistance)
             {
-                // Oat and Sander 2007, "Ambient Aperture Lighting"
-                // Approximation mentioned by Jimenez et al. 2016
-                float radius1 = acosFastPositive(cosCap1); //First caps radius (arc length in radians)
-                float radius2 = cap2; //Second caps radius (in radians)
-                float dist = acosFast(cosDistance); //Distance between caps (radians between centers of caps)
+                // Constants
+                const float EPSILON = 0.0001;
 
-                // We work with cosine angles, replace the original paper's use of
-                // cos(min(radius1, radius2)) with max(cosCap1, cosCap2)
-                // 
-                // We also remove a multiplication by 2 * PI to simplify the computation
-                // since we divide by 2 * PI at the call site
+                // Precompute constants
+                float radius1 = acosFastPositive(cosCap1); // First caps radius (arc length in radians)
+                float radius2 = cap2; // Second caps radius (in radians)
+                float dist = acosFast(cosDistance); // Distance between caps (radians between centers of caps)
 
-                if (min(radius1, radius2) <= max(radius1, radius2) - dist)
-                {
-                    return 1.0 - max(cosCap1, cosCap2);
-                }
-                else if (radius1 + radius2 <= dist)
-                {
-                    return 0.0;
-                }
+                // Conditional expressions instead of if-else
+                float check1 = min(radius1, radius2) <= max(radius1, radius2) - dist;
+                float check2 = radius1 + radius2 <= dist;
+
+                // Ternary operator to replace if-else
+                float result = check1 ? (1.0 - max(cosCap1, cosCap2)) : (check2 ? 0.0 : 1.0 - max(cosCap1, cosCap2));
 
                 float delta = abs(radius1 - radius2);
-                float x = 1.0 - saturate((dist - delta) / max(radius1 + radius2 - delta, 0.0001));
+                float x = 1.0 - saturate((dist - delta) / max(radius1 + radius2 - delta, EPSILON));
 
                 // simplified smoothstep()
                 float area = sq(x) * (-2.0 * x + 3.0);
 
-                return area * (1.0 - max(cosCap1, cosCap2));
+                // Multiply by (1.0 - max(cosCap1, cosCap2)) only once
+                return area * result;
             }
 
             float directionalOcclusionSphere(float3 rayPosition, float3 spherePosition, float sphereRadius, float4 coneProperties)
