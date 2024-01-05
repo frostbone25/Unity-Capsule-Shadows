@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: AnalyticalShadowsScene_Sphere
   m_Shader: {fileID: 4800000, guid: 5d56fc7093401834cad4c95f9f255a56, type: 3}
-  m_ShaderKeywords: _CASTERTYPE_SPHERE _DEPTHTYPE_FROMCAMERADEPTH _DIRECTIONTYPE_LIGHTPROBES
-    _NORMALTYPE_1_TAP_QUAD_INTRINSICS _SHOWBUFFER_WORLDNORMALS
+  m_ShaderKeywords: SIMPLIFY_LIGHT_PROBE_DIRECTION _CASTERTYPE_SPHERE _DEPTHTYPE_FROMCAMERADEPTH
+    _DIRECTIONTYPE_LIGHTPROBES _NORMALTYPE_1_TAP_QUAD_INTRINSICS _SHOWBUFFER_WORLDNORMALS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -79,7 +79,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ShowBuffer: 7
-    - _SimplifyLightProbeDirection: 0
+    - _SimplifyLightProbeDirection: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SphereRadius: 1

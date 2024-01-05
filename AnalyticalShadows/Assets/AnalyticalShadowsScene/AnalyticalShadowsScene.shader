@@ -3,7 +3,6 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
     Properties
     {
         [Header(Rendering)]
-        [KeywordEnum(FromCameraDepth, FromCameraDepthNormals)] _DepthType("Depth Type", Float) = 0
         [KeywordEnum(GlobalDirection, LightProbes)] _DirectionType("Direction Type", Float) = 0
         [Toggle(SIMPLIFY_LIGHT_PROBE_DIRECTION)] _SimplifyLightProbeDirection("Simplify Light Probe Direction", Float) = 1
         _GlobalDirection("Global Direction", Vector) = (0, 1, 0, 0)
@@ -43,7 +42,6 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
             #pragma multi_compile_instancing
 
             #pragma multi_compile _CASTERTYPE_SPHERE _CASTERTYPE_CAPSULE
-            #pragma multi_compile _DEPTHTYPE_FROMCAMERADEPTH _DEPTHTYPE_FROMCAMERADEPTHNORMALS
             #pragma multi_compile _DIRECTIONTYPE_GLOBALDIRECTION _DIRECTIONTYPE_LIGHTPROBES
 
             #pragma shader_feature_local SIMPLIFY_LIGHT_PROBE_DIRECTION
@@ -194,21 +192,6 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
                 return o;
             }
 
-            float SampleDepth(float2 uv)
-            {
-                #if defined (_DEPTHTYPE_FROMCAMERADEPTH)
-                    float4 rawCameraDepthTexture = tex2D(_CameraDepthTexture, uv);
-                    return rawCameraDepthTexture.r;
-                #elif defined (_DEPTHTYPE_FROMCAMERADEPTHNORMALS)
-                    float4 rawCameraDepthNormalsTexture = tex2D(_CameraDepthNormalsTexture, uv);
-
-                    float decodedFloat = DecodeFloatRG(rawCameraDepthNormalsTexture.zw);
-                    decodedFloat = Linear01Depth(decodedFloat);
-
-                    return decodedFloat;
-                #endif
-            }
-
             float4 fragment_base(vertexToFragment i) : SV_Target
             {
                 //Single Pass Instanced Support
@@ -218,7 +201,9 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
 
                 #if UNITY_UV_STARTS_AT_TOP
                     if (_CameraDepthTexture_TexelSize.y < 0)
+                    {
                         screenUV.y = 1 - screenUV.y;
+                    }
                 #endif
 
                 #if UNITY_SINGLE_PASS_STEREO
@@ -228,25 +213,22 @@ Shader "ScenePostProcessing/AnalyticalShadowsScene"
                     screenUV = (screenUV - scaleOffset.zw) / scaleOffset.xy;
                 #endif
 
-                float rawDepth = SampleDepth(screenUV);
-                float linearDepth = LinearEyeDepth(rawDepth);
+                float linearDepth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPos)));
                 float3 cameraWorldPositionViewPlane = i.camRelativeWorldPos.xyz / dot(i.camRelativeWorldPos.xyz, unity_WorldToCamera._m20_m21_m22);
                 float3 computedWorldPosition = cameraWorldPositionViewPlane * linearDepth + _WorldSpaceCameraPos;
-
-                float result = 1;
 
                 float4 cone = GetConeProperties();
 
                 #if defined (_CASTERTYPE_SPHERE)
-                    result *= directionalOcclusionSphere(computedWorldPosition, i.objectOrigin, _SphereRadius, cone);
+                    float result = directionalOcclusionSphere(computedWorldPosition, i.objectOrigin, _SphereRadius, cone);
                 #elif defined (_CASTERTYPE_CAPSULE)
                     float3 endA = i.objectOrigin + i.capsuleDirection * (_CapsuleHeight * 0.5);
                     float3 endB = i.objectOrigin - i.capsuleDirection * (_CapsuleHeight * 0.5);
 
-                    result *= directionalOcclusionCapsule(computedWorldPosition, endA, endB, _CapsuleRadius, cone);
+                    float result = directionalOcclusionCapsule(computedWorldPosition, endA, endB, _CapsuleRadius, cone);
                 #endif
 
-                result = lerp(1.0f, result, _Intensity);
+                    result = saturate(lerp(1.0f, result, _Intensity));
 
                 return result;
             }
